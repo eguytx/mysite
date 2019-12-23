@@ -3,14 +3,17 @@
 		<link rel="stylesheet" type="text/css" href="ethan.css">
 	</head>
 	<body>
-		<input placeholder="Name Here" id="person" ></input><br/>
+		<input placeholder="Name Here" id="person" ></input><br/> <br>
 
-		<button id="showButton" onclick="doStuff()">Click <HEADER></HEADER></button>
+		<button id="showButton" onclick="doStuff()">Click Here </button>
 
 
 		<br/>
 
-		<div id="output">Here is the stuff I want to show</div>
+		<div id="output">Try to guess the Number</div>
+		<img id="messageImage" src="https://www.publicdomainpictures.net/pictures/40000/nahled/question-mark.jpg" width="200">
+		<div id="messageImage" style="display: none"></div> 
+
 
 
 		<div id="game" style="display: none">
@@ -19,10 +22,10 @@
 			<button onclick="doGame()">Submit</button>
 		</div>
 		<div id="winGame" style="display: none">
+			<br>
 			<a href="ethan.html">Click here to play again</a> <br>
 			<a href="index.html">Click here to go home</a> <br> <br> 
-			<img src="https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1571606035" width="200">
-
+			
 		</div>
 	</body>
 	</div>
@@ -30,6 +33,7 @@
 		//Start-up Variables
 		var randomNumber = Math.floor(Math.random() * 20) + 1;
 		var guessCount = 0;
+		const successImageUrl = "https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1571606035";
 
 		function getName() {
 			return document.getElementById("person").value;
@@ -70,6 +74,7 @@
 
 
 				document.getElementById("output").innerText = "Great guess, " + getName() + " you got it in " + guessCount + " tries.";
+				document.getElementById("messageImage").src = successImageUrl;
 			} else if (guess > randomNumber) {
 				// do stuff if guess too high
 				document.getElementById("output").innerText = "Too High!";

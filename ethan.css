@@ -1,14 +1,22 @@
 
 button {
-	
+	font-size: 20;	
 }
-
-
-
 
 body	 {
   color: black;
   background-color: white;
+  font-size: 3vw;
 
 }
 
+input{
+	font-size: 20
+
+}
+
+h1{
+	font-size: 5vw;
+	font-family: "Comic sans MS" ;
+
+}
