@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="ethan.css">
+	</head>
+	<body>
+		<input placeholder="Name Here" id="person" ></input><br/>
+
+		<button id="showButton" onclick="doStuff()">Click <HEADER></HEADER></button>
+
+
+		<br/>
+
+		<div id="output">Here is the stuff I want to show</div>
+
+
+		<div id="game" style="display: none">
+			<div id="gameCaption">What number am I thinking of? It is in between 1 and 20.</div>
+			<input id="guess" />
+			<button onclick="doGame()">Submit</button>
+		</div>
+		<div id="winGame" style="display: none">
+			<a href="ethan.html">Click here to play again</a> <br>
+			<a href="index.html">Click here to go home</a> <br> <br> 
+			<img src="https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1571606035" width="200">
+
+		</div>
+	</body>
+	</div>
+	<script>
+		//Start-up Variables
+		var randomNumber = Math.floor(Math.random() * 20) + 1;
+		var guessCount = 0;
+
+		function getName() {
+			return document.getElementById("person").value;
+		}
+
+
+		function doStuff() {
+
+			
+		  	// siblings and bag of chips program
+			//var numberOfSiblings = 1 + 1;
+			//var bagsOfChips = 3;
+			//var x = bagsOfChips - numberOfSiblings;
+			
+		    //Greeting program
+			var greeting = "Hello, ";                          
+			var myName = getName();
+			if (myName.length > 0) {
+				var greetings = ["Hi", "Hello", "What's Up?", "Hola", "Bonjour","Howdy","Yo"];
+
+				var i = Math.floor(Math.random() * 7);
+				document.getElementById("output").innerText = greetings[i] + ", " + myName;
+				document.getElementById("person").style.display = "none";
+				document.getElementById("game").style.display = "inline";
+
+			}
+
+		}
+
+		function doGame() {
+			guessCount = guessCount + 1;
+			var guess = parseInt(document.getElementById("guess").value);
+
+			if (guess == randomNumber) {
+				// do stuff if guess is perfect
+				document.getElementById("winGame").style.display = "inline";
+				document.getElementById("game").style.display = "none";
+
+
+				document.getElementById("output").innerText = "Great guess, " + getName() + " you got it in " + guessCount + " tries.";
+			} else if (guess > randomNumber) {
+				// do stuff if guess too high
+				document.getElementById("output").innerText = "Too High!";
+
+			} else {
+				// do stuff if guess too low
+				document.getElementById("output").innerText = "To Low!";
+
+
+
+
+			}
+		}
+
+
+
+
+	</script>
+</html>
